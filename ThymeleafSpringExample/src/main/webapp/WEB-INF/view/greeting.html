@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Thymeleafのサンプル</title>
+</head>
+<body>
+	<p th:text="${message}">Thymeleafのサンプルです</p>
+
+	<form action="/ThymeleafSpringExample/top/" method="post" th:object="${person}">
+		名前：<input type="text" name="name" th:field="*{name}" required="required" /><br>
+		年齢：<input type="text" name="age" th:field="*{age}" required="required" pattern="\d+?" /><br>
+		<!--
+			pattern="\d+?"←この部分はフォームに対する入力値検証を実施するために記述。
+							0桁以上の数字かどうかをチェック
+			required="required"	←この部分は、フォームが必須項目であることを示すために記述。
+								  入力をしないと注意メッセージが表示される。
+		-->
+		<input type="submit" value="送信" />
+	</form>
+
+</body>
+</html>

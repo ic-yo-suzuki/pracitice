@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録情報の編集</title>
+</head>
+<body>
+	<h3 th:text="${caption}"></h3>
+	<div th:if"${person !=null}">
+		<form action="/SpringDataJPAExample/edit/post/" method="post" th:object="${person}">
+			<table border="1">
+				<tr>
+					<th>ID</th>
+					<td> <input type="text" name="id" th:value="*{id}" th:field="*{id}" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<th>名前</th>
+					<td><input type="text" name="name" th:value="*{name}" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<th>年齢</th>
+					<td><input type="text" name="age" th:value="*{age}" th:field="*{age}" /></td>
+				</tr>
+				<tr>
+					<th>性別</th>
+					<td><input type="text" name="sex" th:value="*{sex}" th:field="*{sex}" /></td>
+				</tr>
+			</table>
+			<input type="submit" value = "登録" />
+		</form>
+	</div>
+</body>
+</html>
